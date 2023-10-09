@@ -180,15 +180,9 @@ MonoBehaviour:
   _csoundFileGUID: b636159c7b355dd4cbee787d4e3db085
   _csoundString: " <CsoundSynthesizer>\n<CsOptions>\n-o dac\n</CsOptions>\n<CsInstruments>\n\nsr
     = 44100\nksmps = 32\nnchnls = 2\n0dbfs = 1\n\ninstr FM_vibr ;vibrato as the modulator
-    is in the sub-audio range\nkModFreq chnget \"modFreq\"\n; kModFreq randomi 5,
-    10, 1\n kCarAmp linen 0.5, 0.1, p3, 0.5\n aModulator poscil 20, kModFreq\n aCarrier
-    poscil kCarAmp, 400 + aModulator\n out aCarrier, aCarrier\nendin\n\ninstr FM_timbr
-    ;timbre change as the modulator is in the audio range\n kModAmp linseg 0, p3/2,
-    212, p3/2, 50\n kModFreq line 25, p3, 300\n kCarAmp linen 0.5, 0.1, p3, 0.5\n
-    aModulator poscil kModAmp, kModFreq\n aCarrier poscil kCarAmp, 400 + aModulator\n
-    out aCarrier, aCarrier\nendin\n\n</CsInstruments>\n<CsScore>\nf0 z\ni \"FM_vibr\"
-    0 -1\n;i \"FM_timbr\" 10 10\n</CsScore>\n</CsoundSynthesizer>\n;example by marijana
-    janevska\n"
+    is in the sub-audio range\nkModFreq chnget \"modFreq\"\naModulator poscil 20,
+    kModFreq\naCarrier poscil 0.5, 400 + aModulator\n out aCarrier, aCarrier\nendin\n\n</CsInstruments>\n<CsScore>\nf0
+    z\ni \"FM_vibr\" 1 -1\n</CsScore>\n</CsoundSynthesizer>\n"
   _csoundFileName: FMExample.csd
   _csoundAsset: {fileID: 102900000, guid: b636159c7b355dd4cbee787d4e3db085, type: 3}
   _channels: []

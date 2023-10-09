@@ -15,12 +15,8 @@ public class RealTimeData : MonoBehaviour
     {
         if (!csound.IsInitialized) return;
 
-        //Debug.Log("Csound active: " + csound.IsInitialized);
         Vector3 mouse = Input.mousePosition;
-        //Debug.Log(mouse.x + ", " + mouse.y + ", " + mouse.z);
-        //float mouseVal = mouse.y / mouse.x;
         float mouseVal = mouse.y;
-        //Debug.Log("Mouse val: " + mouseVal);
         float mappedMouseVal = Map(mouseVal, -374.0f, 525.0f, 5.0f, 50.0f);
         Debug.Log("Mapped mouse: " + mappedMouseVal);
         csound.SetChannel("modFreq", mappedMouseVal);
